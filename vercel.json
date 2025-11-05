@@ -1,8 +1,5 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
+    { "source": "/.well-known/:match*", "destination": "/.well-known/:match*" }
   ]
 }
