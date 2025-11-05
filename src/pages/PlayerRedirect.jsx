@@ -7,16 +7,28 @@ export default function PlayerRedirect() {
   useEffect(() => {
     const schemeUrl = `com.fp.transportapp://player/${name}/${id}`;
     const playStoreUrl = `https://play.google.com/store/apps/details?id=com.fp.transportapp`;
-    
-    // Try to open Flutter app
-    window.location.href = schemeUrl;
 
-    // If app not installed → redirect to Play Store after 2 seconds
+    // Timer to redirect to Play Store if app not installed
     const timer = setTimeout(() => {
       window.location.href = playStoreUrl;
-    }, 2000);
+    }, 3000);
 
-    return () => clearTimeout(timer);
+    // If page becomes hidden (app opened), cancel timer
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearTimeout(timer);
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Try to open app
+    window.location.href = schemeUrl;
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [name, id]);
 
   return (
