@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fp.transportapp",
+      "sha256_cert_fingerprints": [
+        "40:3C:77:BC:E4:AF:77:EE:40:14:59:1E:41:7D:9F:C6:98:1A:1F:3B:81:BA:40:7C:81:F9:56:E3:2D:97:CE:28"
+      ]
+    }
+  }
+]
