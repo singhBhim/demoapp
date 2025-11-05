@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/.well-known/:match*", "destination": "/.well-known/:match*" }
+    { "source": "/.well-known/:match*", "destination": "/.well-known/:match*" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
