@@ -1,6 +1,20 @@
 {
+  "headers": [
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    }
+  ],
   "rewrites": [
-    { "source": "/.well-known/:match*", "destination": "/.well-known/:match*" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/.well-known/:match*",
+      "destination": "/.well-known/:match*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
