@@ -5,8 +5,10 @@ export default function PlayerRedirect() {
   const { name, id } = useParams();
 
   useEffect(() => {
-    const schemeUrl = `com.fp.transportapp://player/${name}/${id}`;
-    const playStoreUrl = `https://play.google.com/store/apps/details?id=com.fp.transportapp`;
+const intentUrl = `intent://player/${name}/${id}#Intent;scheme=com.fp.transportapp;package=com.fp.transportapp;end`;
+
+    
+const playStoreUrl = `https://play.google.com/store/apps/details?id=com.fp.transportapp`;
 
     // Timer to redirect to Play Store if app not installed
     const timer = setTimeout(() => {
@@ -23,7 +25,8 @@ export default function PlayerRedirect() {
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // Try to open app
-    window.location.href = schemeUrl;
+    // window.location.href = schemeUrl;
+    window.location.href = intentUrl;
 
     return () => {
       clearTimeout(timer);
